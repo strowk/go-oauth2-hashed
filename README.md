@@ -14,12 +14,12 @@ import (
 )
 
 func main() {
-    // ... create your store here
+	// ... create your store here
 
-    // wrap the store using Bcrypt hashing
+	// wrap the store using Bcrypt hashing
 	clientStoreWithHash := go_oauth2_hashed.NewClientStoreWithBcrypt(clientStore)
 
-    // store a client with hashed secret
+	// store a client with hashed secret
 	err := clientStoreWithHash.HashAndCreate(&models.Client{
 		ID:     "client_id",
 		Secret: "client_secret",
@@ -31,7 +31,7 @@ func main() {
 		panic(err)
 	}
 
-    // Now you can pass clientStoreWithHash to oauth2 library as usual store
+	// Now you can pass clientStoreWithHash to oauth2 library as usual store
 	manager := manage.NewDefaultManager()
 	manager.MapClientStorage(clientStore)
 }
