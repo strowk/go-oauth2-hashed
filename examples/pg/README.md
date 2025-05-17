@@ -30,5 +30,10 @@ clientStoreWithHash.HashAndCreate(&models.Client{
 
 This way client store would hash secret before calling original `Create` method.
 
-`ClientStoreWithHash` implements `oauth2.ClientStore` in a way that returned client supports `oauth2.ClientPasswordVerifier` using hash, so you can just give `ClientStoreWithHash` directly to `oauth2` library without any changes.
+`ClientStoreWithHash` implements `oauth2.ClientStore` in a way that returned client supports `oauth2.ClientPasswordVerifier` using hash, so you can just give `ClientStoreWithHash` directly to `oauth2` library without any changes:
+
+```golang
+manager := manage.NewDefaultManager()
+manager.MapClientStorage(clientStoreWithHash)
+```
 
