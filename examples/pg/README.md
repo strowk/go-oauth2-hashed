@@ -5,7 +5,7 @@ This example demostrates how to wrap a Postgres store into `ClientStoreWithHash`
 To run this example, you will need to have a Postgres database running. `run.sh` script will create a database in Docker, so with docker installed you can run:
 
 ```bash
-bash /run.sh
+bash run.sh
 ```
 
 ### Understanding the example
